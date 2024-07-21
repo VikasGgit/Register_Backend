@@ -32,8 +32,12 @@ export const addNewAdmin = catchAsyncError(
     )
 
 export const logoutAdmin= catchAsyncError((req, res, next) =>{
-        res.status(200).cookie("adminToken", null, {expires: new Date(Date.now()),
-        httpOnly: true})
+    res.cookie("maintainerToken", null, {
+        expires: new Date(Date.now()),
+        httpOnly: true,
+        secure: true, // Ensure this matches your initial cookie settings
+        sameSite: 'None' // Ensure this matches your initial cookie settings
+    })
         .json({success :true, 
             message : "Admin has been logged out successfully"
     });

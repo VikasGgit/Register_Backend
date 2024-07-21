@@ -14,7 +14,7 @@ import { appointmentRouter } from "./routers/appointmentRoute.js";
 
 app.use(cors(
 {
-    origin: [process.env.FRONT_END_URL , process.env.DASHBORD_URL],
+    origin: ["https://register-frontend-zow7.onrender.com" , "https://register-dashboard.onrender.com"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
 }

@@ -60,12 +60,18 @@ export const getUserDetails= catchAsyncError((req, res, next) =>{
 })
 
 
-export const logoutUser= catchAsyncError((req, res, next) =>{
-    res.status(200).cookie("maintainerToken", null, {expires: new Date(Date.now()),
-    httpOnly: true})
-    .json({success :true, 
-        message : "Maintainer has been logged out successfully"
-});
+export const logoutUser = catchAsyncError((req, res, next) => {
+    res.cookie("maintainerToken", null, {
+        expires: new Date(Date.now()),
+        httpOnly: true,
+        secure: true, // Ensure this matches your initial cookie settings
+        sameSite: 'None' // Ensure this matches your initial cookie settings
+    })
+    .status(200)
+    .json({
+        success: true,
+        message: "Maintainer has been logged out successfully"
+    });
 });
 
 export const addNewMaintainer= catchAsyncError( async(req, res, next) =>{

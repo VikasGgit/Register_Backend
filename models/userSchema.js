@@ -70,10 +70,9 @@ userSchema.methods.comparePassword= async function(enteredPassword){
 //     return await bcrypt.compare(this.password, enteredPassword);
 // };
 
-userSchema.methods.generateJsonWebToken= function(){
-    return jwt.sign({id: this._id},"ram ram ram", {expiresIn:process.env.JWT_EXPIRES
-    });
-}
+userSchema.methods.generateJsonWebToken = function() {
+    return jwt.sign({ id: this._id }, "ram ram ram", { expiresIn: "7d" });
+};
 
 
 
