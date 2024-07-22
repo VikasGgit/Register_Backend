@@ -1,6 +1,6 @@
 import { User } from "../models/userSchema.js";
 import jwt from "jsonwebtoken"
-import { catchAsyncError } from "./catchasyncErrors.js";
+import { catchAsyncError } from "./catchAsyncErrors.js";
 import { errorHandler } from "./errormiddleware.js";
 
 
